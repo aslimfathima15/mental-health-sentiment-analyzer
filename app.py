@@ -1,10 +1,9 @@
 import streamlit as st
-import pickle
+import joblib
 import re
 
-# Load saved files
-model = pickle.load(open("mental_model.pkl", "rb"))
-vectorizer = pickle.load(open("vectorizer.pkl", "rb"))
+model = joblib.load("mental_model.pkl")
+vectorizer = joblib.load("vectorizer.pkl")
 
 st.set_page_config(page_title="Mental Health Analyzer", page_icon="🧠")
 st.title("🧠 Mental Health Sentiment Analyzer")
@@ -33,4 +32,5 @@ if st.button("Analyze"):
             st.write(f"{label}: {round(prob*100,2)}%")
 
         if prediction == "Distress":
+
             st.error("⚠ If you are struggling, consider seeking support from a trusted person or professional.")
