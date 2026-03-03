@@ -34,3 +34,4 @@ if st.button("Analyze"):
         if prediction == "Distress":
 
             st.error("⚠ If you are struggling, consider seeking support from a trusted person or professional.")
+
